@@ -7,6 +7,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 
+import { LeaderService } from './services/leader.service';
+
 import { AppComponent } from './app.component';
 import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
@@ -17,6 +19,8 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+
+
 
 
 @NgModule({
@@ -37,7 +41,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     FlexLayoutModule,
 	AppRoutingModule
   ],
-  providers: [DishService, PromotionService],
+  providers: [DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
