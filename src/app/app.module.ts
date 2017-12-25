@@ -22,7 +22,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 
 import { FormsModule } from '@angular/forms'; 
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -46,7 +46,8 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     FlexLayoutModule,
 	AppRoutingModule,
-	FormsModule
+	FormsModule,
+	ReactiveFormsModule
   ],
   providers: [DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent]
