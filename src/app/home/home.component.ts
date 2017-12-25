@@ -12,6 +12,8 @@ import { PromotionService } from '../services/promotion.service';
 })
 export class HomeComponent implements OnInit {
 
+
+
   dish: Dish;
   promotion: Promotion;
 
@@ -19,7 +21,7 @@ export class HomeComponent implements OnInit {
     private promotionservice: PromotionService) { }
 
   ngOnInit() {
-    this.dish = this.dishservice.getFeaturedDish();
+   this.dishservice.getFeaturedDish().then(dish=>this.dish=dish);
     this.promotion = this.promotionservice.getFeaturedPromotion();
   }
 

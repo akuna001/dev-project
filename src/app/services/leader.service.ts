@@ -7,9 +7,11 @@ export class LeaderService {
 
   constructor() { }
   
-getLeaders(): Leader[]
+  
+  
+getLeaders(): Promise<Leader[]>
 {
-    return LEADERS;
+    return Promise.resolve(LEADERS);
 	}
 	
 }

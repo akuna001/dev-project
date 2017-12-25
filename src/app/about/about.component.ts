@@ -12,11 +12,11 @@ import { LeaderService } from '../services/leader.service';
 })
 export class AboutComponent implements OnInit {
 leaders: Leader[];
-  constructor(private LeaderService: LeaderService) { }
+  constructor(private leaderService: LeaderService) { }
 
   ngOnInit() {
-  
-   this.leaders = this.LeaderService.getLeaders();
+
+this.leaderService.getLeaders().then(leaders=>this.leaders=leaders);
    
   }
   
