@@ -12,6 +12,8 @@ import { LeaderService } from '../services/leader.service';
 })
 export class AboutComponent implements OnInit {
 leaders: Leader[];
+
+  
   constructor(private leaderService: LeaderService) { }
 
   ngOnInit() {
@@ -20,6 +22,9 @@ this.leaderService.getLeaders().then(leaders=>this.leaders=leaders);
    
   }
   
+  
+      
+
   
 
 }

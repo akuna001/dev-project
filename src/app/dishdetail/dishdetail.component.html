@@ -26,6 +26,10 @@
         <button md-button>SHARE</button>
       </md-card-actions>
     </md-card>
+		  
+		  <div [hidden]="dish">
+    <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
   </div>
 	  
     
@@ -46,7 +50,9 @@
         </div>  
       
     </md-list>
-	  
+	  <div [hidden]="dish">
+    <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
     
   </div>
 
