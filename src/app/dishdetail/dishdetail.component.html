@@ -38,11 +38,11 @@
     
   </div>
 
-  <div fxFlex="40" *ngIf="dish">
+  <div fxFlex="40" *ngIf="dish" fxLayout="column">
 	  <h3 md-line>Comments</h3>
     
-      <md-list *ngFor="let dishcom of dish.comments">
-		 <div fxFlex>
+      <md-list *ngFor="let dishcom of dish.comments" >
+		 <div fxFlex >
 		 <md-list-item>
 			 
 			 <h5>{{dishcom.comment}}</h5></md-list-item>
@@ -57,8 +57,37 @@
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
   </div>
     
-  </div>
+ 
 	
-	
+<div fxFlex="40" class="form-size" fxLayout="column">
+	   <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+          <p>
+            <md-input-container class="half-width"
+             dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
+              <input mdInput formControlName="author" placeholder="Your Name" type="text" required>
+              <md-hint>
+                <span [hidden]="!(formErrors.author)">
+                  {{formErrors.author}}</span>
+              </md-hint>
+			  </md-input-container></p>
+		   <p>
+            <md-slider min=1 max=5 thumbLabel tickInterval="1" value=5></md-slider>
+          </p>
+          
+		   <p>
+            <md-input-container class="half-width"
+             dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
+              <input mdInput formControlName="comment" placeholder="Your Feedback" type="text" required>
+              <md-hint>
+                <span [hidden]="!(formErrors.comment)">
+                  {{formErrors.comment}}</span>
+              </md-hint>
+			  </md-input-container></p>
+          
+          <button type="submit" md-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+        </form>
+    
+  </div>	
+	</div>
 
 </div>
