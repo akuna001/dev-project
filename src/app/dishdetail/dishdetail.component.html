@@ -53,6 +53,16 @@
         </div>  
       
     </md-list>
+	  <div fxFlex *ngIf="comm">
+	  <md-list>
+		  <md-list-item>
+			 
+			 <h5>{{comm.comment}}</h5></md-list-item>
+		  <md-list-item><h5> {{comm.rating}} stars</h5></md-list-item>
+		  <md-list-item><h5>--{{comm.author}}</h5></md-list-item>
+	  </md-list></div>
+	  <!--<div *ngIf=onSubmit()>kjamn</div>-->
+	  
 	  <div [hidden]="dish">
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
   </div>
@@ -70,8 +80,8 @@
                   {{formErrors.author}}</span>
               </md-hint>
 			  </md-input-container></p>
-		   <p>
-            <md-slider min=1 max=5 thumbLabel tickInterval="1" value=5></md-slider>
+		   <p><label for="rating">
+            <md-slider min=1 max=5 thumbLabel tickInterval="1" value=5></md-slider></label>
           </p>
           
 		   <p>
