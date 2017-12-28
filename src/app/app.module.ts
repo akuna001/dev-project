@@ -5,7 +5,11 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { DishService } from './services/dish.service';
+import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+
 import { PromotionService } from './services/promotion.service';
+
+
 
 import { LeaderService } from './services/leader.service';
 
@@ -23,7 +27,11 @@ import { LoginComponent } from './login/login.component';
 
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
+import { baseURL } from './shared/baseurl';
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
 
 @NgModule({
   declarations: [
@@ -47,9 +55,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     FlexLayoutModule,
 	AppRoutingModule,
 	FormsModule,
-	ReactiveFormsModule
+	ReactiveFormsModule,
+	HttpModule,
+	RestangularModule.forRoot(RestangularConfigFactory)
   ],
-  providers: [DishService, PromotionService, LeaderService],
-  bootstrap: [AppComponent]
+  providers: [DishService, PromotionService, LeaderService, ProcessHttpmsgService, 
+  {provide: 'BaseURL', useValue: baseURL}
+  ],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

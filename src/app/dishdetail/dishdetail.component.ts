@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 
 import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
@@ -23,6 +23,7 @@ export class DishdetailComponent implements OnInit {
   dishIds: number[];
   prev: number;
   next: number;
+  errMess: string;
   
   commentForm: FormGroup;
   comm: Comment;
@@ -48,9 +49,9 @@ validationMessages = {
   
   constructor(private dishservice: DishService,
     private route: ActivatedRoute,
-    private location: Location, private fb: FormBuilder) {
+    private location: Location, private fb: FormBuilder, @Inject('BaseURL') private BaseURL) {
 	
-	this.createForm();
+	
 	}
 	
 	
@@ -95,9 +96,9 @@ validationMessages = {
   }
 
   ngOnInit() {
-    let id = +this.route.snapshot.params['id'];
-     this.dishservice.getDish(id).subscribe(dish=>this.dish =dish);
-	 
+    
+    
+	 this.createForm();
 	 this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.route.params
       .switchMap((params: Params) => this.dishservice.getDish(+params['id']))
