@@ -31,11 +31,9 @@
       </md-card-actions>
     </md-card>
 		  
-		  <div [hidden]="dish">
-    <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+		 
   </div>
-  </div>
-	  
+	   
     
   </div>
 
@@ -98,13 +96,14 @@
     
 	
   </div>	
-	  <div [hidden]="dishes || errMess">
+	  <div [hidden]="dish ||errMess">
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
   </div>
-  <div *ngIf="errMess">
+		  <div *ngIf="errMess">
     <h2>Error</h2>
     <h4>{{errMess}}</h4>
   </div>
+  
 	</div>
 
 </div>
